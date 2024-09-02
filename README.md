@@ -44,26 +44,25 @@ There are different types of databases:
 
 ### Creating SQLite File 
 
-    To create a new SQLite database use this in the command prompt: ``` sqlite3 example_db.db ```
+To create a new SQLite database use this in the command prompt: ``` sqlite3 example_db.db ```
 
-    This will create a new database called example_db. 
+This will create a new database called example_db. 
 
-    You can create an example table using: ```
-    
-        CREATE TABLE users (
-        id INTEGER PRIMARY KEY,
-        name TEXT,
-        email TEXT
-    );
-    
-    ```
+You can create an example table using: 
 
-    This will create a table with id, name, and email columns.
-    You can change the name of field or add more.
+```sql
+CREATE TABLE users (
+    id INTEGER PRIMARY KEY,
+    name TEXT,
+    email TEXT
+);
 
-     To add some example data you can do: ```INSERT INTO users (name, email) VALUES ('Random User', 'random@example.com'); ```
+This will create a table with id, name, and email columns.
+You can change the name of field or add more.
+
+To add some example data you can do: ``` INSERT INTO users (name, email) VALUES ('Random User', 'random@example.com'); ```
      
-     To view all users you can use the wildcard operator: ``` SELECT * FROM users; ```
+To view all users you can use the wildcard operator: ``` SELECT * FROM users; ```
 
 ### OOP Review 
 
