@@ -56,6 +56,7 @@ CREATE TABLE users (
     name TEXT,
     email TEXT
 );
+```
 
 This will create a table with id, name, and email columns.
 You can change the name of field or add more.
