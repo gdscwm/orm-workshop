@@ -58,33 +58,35 @@ There are different types of databases:
         name TEXT,
         email TEXT
     );
+    ```
 
     This will create a table with id, name, and email columns.
     You can change the name of field or add more.
 
      To add some example data you can do:
      ```INSERT INTO users (name, email) VALUES ('Random User', 'random@example.com');
-     ```
+     
      To view all users you can use the wildcard operator: ```SELECT * FROM users;
 
 ### OOP Review 
 
 Classses, objects, inheritance, encapsulation, polymorphism 
 
-### Object Relational Model
+## Object Relational Model
 
-## Orm interacts with a database using a programming language instead of doing direct SQL queries.
+### Orm interacts with a database using a programming language instead of doing direct SQL queries.
 You can do database queries through python instead of directly with SQL. 
 
-### Python setup 
+## Python setup 
 
-## Create Python env
+### Create Python env
 
-To set up a python env use: ```python -m venv venv
-Activate the env with: ``` source venv/bin/activate  # On Windows use `venv\Scripts\activate`
+To set up a python env use: ```python -m venv venv```
 
-Install the requirements file with:
-``` pip install -r requirements.txt
+Activate the env with: ``` source venv/bin/activate``` 
+On Windows use: ``` venv\Scripts\activate ```
+
+Install the requirements file with: ``` pip install -r requirements.txt
 This will install all of the needed libraries. 
 
 ### Create Basic schema file. 
