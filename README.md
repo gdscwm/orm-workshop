@@ -44,29 +44,26 @@ There are different types of databases:
 
 ### Creating SQLite File 
 
-    To create a new SQLite database use 
-    ```sqlite3 example_db.db
-    in the command prompt
+    To create a new SQLite database use this in the command prompt: ``` sqlite3 example_db.db ```
 
     This will create a new database called example_db. 
 
-    You can create an example table using: 
+    You can create an example table using: ```
     
-    ```
         CREATE TABLE users (
         id INTEGER PRIMARY KEY,
         name TEXT,
         email TEXT
     );
+    
     ```
 
     This will create a table with id, name, and email columns.
     You can change the name of field or add more.
 
-     To add some example data you can do:
-     ```INSERT INTO users (name, email) VALUES ('Random User', 'random@example.com');
+     To add some example data you can do: ```INSERT INTO users (name, email) VALUES ('Random User', 'random@example.com'); ```
      
-     To view all users you can use the wildcard operator: ```SELECT * FROM users;
+     To view all users you can use the wildcard operator: ``` SELECT * FROM users; ```
 
 ### OOP Review 
 
@@ -86,7 +83,7 @@ To set up a python env use: ```python -m venv venv```
 Activate the env with: ``` source venv/bin/activate``` 
 On Windows use: ``` venv\Scripts\activate ```
 
-Install the requirements file with: ``` pip install -r requirements.txt
+Install the requirements file with: ``` pip install -r requirements.txt ```
 This will install all of the needed libraries. 
 
 ### Create Basic schema file. 
