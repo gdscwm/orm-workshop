@@ -37,6 +37,7 @@ There are different types of databases:
    - **Windows**: Download the SQLite tools from the [SQLite Download Page](https://www.sqlite.org/download.html) and extract the files to a directory (e.g., `C:\sqlite`). Add this directory to your system's PATH.
    - **macOS**: SQLite comes pre-installed. You can check the version by running `sqlite3 --version` in your terminal.
    - **Linux**: Install SQLite using your package manager. For example, on Ubuntu or Debian-based systems, run:
+DO NOT INSTALL dll for Windows
 
    ```bash
    sudo apt-get install sqlite3
