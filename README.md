@@ -89,3 +89,150 @@ Install the requirements file with: ``` pip install -r requirements.txt ```
 This will install all of the needed libraries. 
 
 ### Create Basic schema file. 
+
+## Workshop 2
+
+
+There is a file in the workshop1 folder named models.py containing a basic database schema.
+If you missed the first workshop you can clone the git repo and run that file, or download it to your local directory if you don't have git installed.
+
+Run the ```models.py``` file from the last workshop. It should create a database file in your local directory named example.db
+
+If there is an error or you cannot figure something out ask one of the GDSC memebers for assistance. You may be missing something from the previous workshop. 
+
+
+
+### Review
+We have gone through creating a database with sqlite and creating a basic schema for a database using ORM with Python. 
+
+### Connect to DB
+
+Now let's connect to the database and add some data. 
+
+In the same directory(folder) as the previous databasee schema was created, create a file called ```add_data.py```
+
+Go ahead and run the ```models.py``` file from the last workshop as well.
+
+In the new file, we need to import some sql libraries and include the imports from the classes we created.
+
+Include these lines at the top of the new ```add_data.py``` file.
+
+```
+from sqlalchemy import create_engine
+from models import Base, User  
+from sqlalchemy.orm import sessionmaker
+```
+
+Now we can create an instance of the db session and add some data. 
+
+To connect to the db create a create_engine session. 
+
+```
+engine = create_engine('sqlite:///example.db')
+Session = sessionmaker(bind=engine)
+session = Session()
+```
+### OOP 
+
+Last workshop we talked about OOP Programming.
+One of the benefits is we can easily add new users from the class we created.
+
+Let's look at the fields we need for creating a new user.
+How do you think we would structure code for adding a user to the Database?
+
+Each user will need a name and email. 
+Let's go ahead and create some users to put into our DB. 
+
+```
+user1 = User(name='John Doe', email='john@example.com')
+user2 = User(name='Jane Smith', email='jane@example.com')
+```
+
+And we need to use session.add() for the db instance. 
+
+```
+session.add(user1)
+session.add(user2)
+
+
+session.commit()
+```
+
+Let's include a print statment to make sure the users got added to the db.
+
+```print("Sample data added successfully!")```
+
+Run the script to see that the data was addded.
+
+We probably also want to see the data we included in the db. Go add and include a statement for viewing all of the users. 
+We can use OOP to access the attributes of our users in a for loop. 
+
+```
+users = session.query(User).all()
+for user in users:
+    print(f"ID: {user.id}, Name: {user.name}, Email: {user.email}")
+```
+
+If everything was done correctly, the users id, name, and email will be printed.
+
+## Creating another table.
+
+Now we have a database, we can connect to the database, and we can populate in with data.
+
+Let's add another table to the database.
+
+Following the syntax we used to create the Base class, we can create another table called Post and use it to store user's posts.
+
+We will add to import some new properties for the new table.
+Make sure relationship has been imported from sqlalchemy.orm.
+
+```from sqlalchemy.orm import relationship```
+
+And include Foreign Key.
+
+``` from sqlalchemy import Column, Integer, String, create_engine,ForeignKey ```
+
+Let's create a Post class for the new table. 
+
+```
+class Post(Base):
+    __tablename__ = 'posts'
+
+    id = Column(Integer, primary_key=True)
+    title = Column(String)
+    content = Column(String)
+```
+
+We need a few more things to add to the class. We want to create a relationship between the User and the Post tables. Let's use a ForeignKey to connected the tables.
+
+```user_id = Column(Integer, ForeignKey('users.id'))```
+We can also establish a relationship between the author (User) and the post.
+```author = relationship('User', back_populates='posts')```
+
+Now the Post class has been connected to the User class, but we still have to connect the User class to the Post class.
+
+Go into the User class and add this line after posts to do that:
+```posts = relationship('Post', back_populates='author')```
+
+
+
+Run the ```models.py``` file. It should run without error. If there is an error ask one of the GDSC memebers for assistance. 
+
+## Add a post
+
+Now go into the add_data.py file and create a post.
+
+```post1 = Post(title='Hello World', content='This is my first post!', author=user1)```
+
+Add the post to the session. 
+
+``` session.add(post1) ```
+
+And print out the post:
+
+```
+for post in user.posts:
+        print(f"  Post ID: {post.id}, Title: {post.title}, Content: {post.content}")
+```
+
+Cool, now we can connect multiple attributes of a database!
