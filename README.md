@@ -90,6 +90,8 @@ This will install all of the needed libraries.
 
 ### Create Basic schema file. 
 
+File is stored under workshop1 ```models.py```
+
 ## Workshop 2
 
 
