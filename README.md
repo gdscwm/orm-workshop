@@ -164,7 +164,15 @@ Let's include a print statment to make sure the users got added to the db.
 
 ```print("Sample data added successfully!")```
 
-Run the script to see that the data was addded.
+Run the script to see that the data was added.
+
+Databases support a number of actions to manipulate data:
+
+- INSERT creates a new entry in a table. When you run session.add(...) you are performing an INSERT operation
+- SELECT is used to read data from a table. You can apply a number of query params to this retrieve only the records that match specific criteria. This is useful when you have a table with hundreds of entries, we don't want to return all of that to the user at once. We will see how to use this shortly.
+- UPDATE is used to update existing records.
+- DELETE is used to delete records.
+- JOIN is used to select records from a second table based on records that have been selected from the first. We will see how this is used later on. 
 
 We probably also want to see the data we included in the db. Go add and include a statement for viewing all of the users. 
 We can use OOP to access the attributes of our users in a for loop. 
@@ -176,6 +184,15 @@ for user in users:
 ```
 
 If everything was done correctly, the users id, name, and email will be printed.
+
+To query only data that matches specific criteria you can use the `filter()` function:
+```
+filtered_users = session.query(User).filter(User.name == "John Doe")
+for user in filtered_users:
+    print(f"ID: {user.id}, Name: {user.name}, Email: {user.email}")
+```
+
+Only John Doe's information should be printed.
 
 ## Creating another table.
 
@@ -216,8 +233,6 @@ Now the Post class has been connected to the User class, but we still have to co
 Go into the User class and add this line after posts to do that:
 ```posts = relationship('Post', back_populates='author')```
 
-
-
 Run the ```models.py``` file. It should run without error. If there is an error ask one of the GDSC memebers for assistance. 
 
 ## Add a post
@@ -237,4 +252,4 @@ for post in user.posts:
         print(f"  Post ID: {post.id}, Title: {post.title}, Content: {post.content}")
 ```
 
-Cool, now we can connect multiple attributes of a database!
+Cool, now we can connect multiple attributes of a database! This is an example of a JOIN statement as mentioned earlier. 
