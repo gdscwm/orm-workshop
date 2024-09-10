@@ -36,6 +36,17 @@ There are different types of databases:
 
    - **Windows**: Download the SQLite tools from the [SQLite Download Page](https://www.sqlite.org/download.html) and extract the files to a directory (e.g., `C:\sqlite`). Add this directory to your system's PATH.
    - DO NOT INSTALL dll for Windows
+
+   To add a variable to your path in Windows:
+
+    Right-click on the Start Button
+    Select “System” from the context menu.
+    Click “Advanced system settings”
+    Go to the “Advanced” tab
+    Click “Environment Variables…”
+    Click variable called “Path” and click “Edit…”
+    Click “New”
+  
    - **macOS**: SQLite comes pre-installed. You can check the version by running `sqlite3 --version` in your terminal.
    - **Linux**: Install SQLite using your package manager. For example, on Ubuntu or Debian-based systems, run:
 
