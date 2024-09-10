@@ -51,7 +51,7 @@ There are different types of databases:
 
    Click variable called “Path” and click “Edit…”
 
-   Click “New”
+   Click “New” and add the folder you extracted. The directory is probabaly: C:\Program Files\sqlite\bin
   
    - **macOS**: SQLite comes pre-installed. You can check the version by running `sqlite3 --version` in your terminal.
    - **Linux**: Install SQLite using your package manager. For example, on Ubuntu or Debian-based systems, run:
